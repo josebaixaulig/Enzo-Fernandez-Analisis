@@ -122,10 +122,11 @@ values_match_defensive, values_mean_defensive = analyze_player(df_with_match, st
 stats = stats_offensive
 values_match_offensive, values_mean_offensive = analyze_player(df_with_match, stats, player_name)
 
-# Crear el dashboard
-dashboard = dash.Dash(__name__)
+# Crear el servidor y el dashboard
+server = Flask(__name__)
+app = dash.Dash(__name__, server=server)
 
-dashboard.layout = html.Div([
+app.layout = html.Div([
     html.H1("Enzo Fernández Performance Dashboard", style={'textAlign': 'center'}),
 
     html.Div([
@@ -154,13 +155,6 @@ dashboard.layout = html.Div([
         )
     ], style={'display': 'flex', 'justifyContent': 'space-around'})
 ])
-
-
-
-from flask import Flask
-
-server = Flask(__name__)
-dashboard = dash.Dash(__name__, server=server)
 
 @server.route("/")
 def index():
