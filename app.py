@@ -156,6 +156,17 @@ dashboard.layout = html.Div([
 ])
 
 
+
+from flask import Flask
+
+server = Flask(__name__)
+dashboard = dash.Dash(__name__, server=server)
+
+@server.route("/")
+def index():
+    return "Welcome to Enzo's Performance Dashboard!"
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8050))  # Usa el puerto de la variable de entorno PORT, por defecto 8050
-    app.run_server(host="0.0.0.0", port=port, debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    server.run(host="0.0.0.0", port=port)
+
