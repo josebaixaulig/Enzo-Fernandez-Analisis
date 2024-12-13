@@ -4,6 +4,7 @@ import numpy as np
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
+import os
 
 # Cargar y preparar datos
 def load_data(file_path):
@@ -154,5 +155,7 @@ dashboard.layout = html.Div([
     ], style={'display': 'flex', 'justifyContent': 'space-around'})
 ])
 
-if __name__ == '__main__':
-    dashboard.run_server(debug=True)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8050))  # Usa el puerto de la variable de entorno PORT, por defecto 8050
+    app.run_server(host="0.0.0.0", port=port, debug=True)
