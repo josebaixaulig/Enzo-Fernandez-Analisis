@@ -5,6 +5,7 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import os
+from flask import Flask
 
 # Cargar y preparar datos
 def load_data(file_path):
