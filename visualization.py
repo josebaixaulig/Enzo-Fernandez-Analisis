@@ -97,7 +97,7 @@ values, values_mean = analyze_player(df_with_mean, stats, player_name)
 
 # Crear y mostrar gráfico
 fig = create_radar_chart(stats, values, values_mean, 
-                         f'{player_name} vs Avg Midfielders', 
+                         f'{player_name} PL Season vs Avg Midfielders', 
                          player_name)
 fig.show()
 
@@ -106,7 +106,7 @@ values, values_mean = analyze_player(df_with_mean, stats, player_name)
 
 # Crear y mostrar gráfico
 fig = create_radar_chart(stats, values, values_mean, 
-                         f'{player_name} vs Avg Midfielders', 
+                         f'{player_name} PL Season vs Avg Midfielders', 
                          player_name)
 fig.show()
 
